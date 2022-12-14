@@ -46,6 +46,9 @@ If the file is not executable, you may need to do the following command:
 
 ## Endpoints
 
+You can use the OpenAPI Swagger tools here: http://127.0.0.1:8000/docs
+
+
 ### GET /
 
 You can get the health check endpoint at the root:
