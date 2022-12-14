@@ -26,20 +26,15 @@ async def add_process_time_header(request: Request, call_next):
 
 
 @app.get("/")
-def root():
-    return { "status": "ok" }
+def root(q: Union[str, None] = None):
+    return { "status": "ok", "q": q }
 
-@app.get("/todo/{todo_id}")
-def show_todo(todo_id: int, q: Union[str, None] = None):
-    return { "id": todo_id, "q": q }
 
 @app.post("/todo")
 def post_todo(todo: TodoBase, request: Request, db: SessionLocal = Depends(get_db)):
     user = get_current_user(request, db)
     if user is None:
         raise HTTPException(status_code=401, detail="Unauthorized")
-
-    # print(">>>> create todo -> user: {}".format(user))
 
     created = create_todo(db, todo, user.id)
 

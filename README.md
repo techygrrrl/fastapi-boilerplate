@@ -10,7 +10,7 @@ This is a proof-of-concept app done in FastAPI with SQLAlchemy and SQLite to see
 - [Development Server](#development-server)
 - [Endpoints](#endpoints)
   - [GET /](#get-)
-  - [GET /todos/:todo\_id?q=:query](#get-todostodo_idqquery)
+  - [POST /todo](#post-todo)
 - [Unknowns / Todos](#unknowns--todos)
 
 
@@ -71,11 +71,21 @@ You can get the health check endpoint at the root:
 http://127.0.0.1:8000
 
 
-### GET /todos/:todo_id?q=:query
+### POST /todo
 
-Here's an example request to an endpoint that takes dynamic parameters:
+Create a todo by posting to the endpoint, e.g.:
 
-http://127.0.0.1:8000/todo/1337?q=foobar
+```sh
+curl --request POST \
+  --url http://127.0.0.1:8000/todo \
+  --header 'Authorization: Bearer token_abc123' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"name": "My 1st Todo",
+	"description": "Do something amazing",
+	"completed": false
+}'
+```
 
 
 ## Unknowns / Todos
