@@ -1,5 +1,20 @@
 # FastAPI Python example
 
+This is a proof-of-concept app done in FastAPI with SQLAlchemy and SQLite to see what it's like to build an API.
+
+- [System Requirements](#system-requirements)
+  - [Virtual Env](#virtual-env)
+    - [Linux, macOS, WSL](#linux-macos-wsl)
+    - [Windows](#windows)
+- [Dependencies](#dependencies)
+- [Development Server](#development-server)
+- [Endpoints](#endpoints)
+  - [GET /](#get-)
+  - [GET /todos/:todo\_id?q=:query](#get-todostodo_idqquery)
+- [Unknowns / Todos](#unknowns--todos)
+
+
+
 ## System Requirements
 
 - Python 3.x (3.8 was used) should be available at either `python` or `python3`
@@ -62,3 +77,10 @@ Here's an example request to an endpoint that takes dynamic parameters:
 
 http://127.0.0.1:8000/todo/1337?q=foobar
 
+
+## Unknowns / Todos
+
+There are still some unknowns:
+
+- [ ] What's the deal with schemas and models and how do they related to each other?
+- [ ] Why is `sqlalchemy` not visible by VSCode as a module? `Import "sqlalchemy.orm" could not be resolved from sourcePylancereportMissingModuleSource`

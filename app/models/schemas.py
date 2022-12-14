@@ -8,6 +8,8 @@ class TodoBase(BaseModel):
     description: Union[str, None] = None
     completed: bool
 
+# TODO: Learn more about schemas vs. models
+
 class Todo(TodoBase):
     id: int
     owner_id: int
